@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array</title>
+</head>
+<body>
+    <h2>Sort an Array Without Using `.sort()`</h2>
+
+    <label for="array">Enter comma-separated numbers:</label>
+    <input type="text" id="array">
+    <br><br>
+
+    <button onclick="sortArray()">Sort Ascending</button>
+    <button onclick="sortArrayDesc()">Sort Descending</button>
+    <h3>RESULT</h3>
+    <p id="result"></p>
+
+    <script>
+        function bubbleSort(arr, ascending = true) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length - i - 1; j++) {
+                    if ((ascending && arr[j] > arr[j + 1]) || (!ascending && arr[j] < arr[j + 1])) {
+                        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    }
+                }
+            }
+            return arr;
+        }
+
+        function sortArray() {
+            let arr = document.getElementById("array").value.split(',').map(Number);
+            document.getElementById("result").innerHTML = "Sorted (Ascending): " + bubbleSort(arr).join(', ');
+        }
+
+        function sortArrayDesc() {
+            let arr = document.getElementById("array").value.split(',').map(Number);
+            document.getElementById("result").innerHTML = "Sorted (Descending): " + bubbleSort(arr, false).join(', ');
+        }
+    </script>
+</body>
+</html>
