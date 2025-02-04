@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Second Smallest and Largest</title>
+</head>
+<body>
+    <h2>Find Second Smallest and Second Largest</h2>
+
+    <label for="array">Enter comma-separated numbers:</label>
+    <input type="text" id="array">
+    <br><br>
+
+    <button onclick="findSecondValues()">Find</button>
+    <h3>RESULT</h3>
+    <p id="result"></p>
+
+    <script>
+        function findSecondValues() {
+            let arr = document.getElementById("array").value.split(',').map(Number);
+            let uniqueSorted = [...new Set(arr)].sort((a, b) => a - b);
+
+            if (uniqueSorted.length < 2) {
+                document.getElementById("result").innerHTML = "Not enough unique numbers!";
+                return;
+            }
+
+            let secondSmallest = uniqueSorted[1];
+            let secondLargest = uniqueSorted[uniqueSorted.length - 2];
+
+            document.getElementById("result").innerHTML = `Second Smallest: ${secondSmallest}, Second Largest: ${secondLargest}`;
+        }
+    </script>
+</body>
+</html>
