@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert to Binary</title>
+</head>
+<body>
+    <h2>Convert a Number to Binary</h2>
+
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number">
+    <br><br>
+
+    <button onclick="toBinary()">Convert</button>
+    <h3>RESULT</h3>
+    <p id="result"></p>
+
+    <script>
+        function toBinary() {
+            let num = parseInt(document.getElementById("number").value);
+            document.getElementById("result").innerHTML = "Binary: " + num.toString(2);
+        }
+    </script>
+</body>
+</html>
