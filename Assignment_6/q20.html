@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Occurrences</title>
+</head>
+<body>
+    <h2>Count the Occurrences of Each Character</h2>
+
+    <label for="text">Enter a string:</label>
+    <input type="text" id="text">
+    <br><br>
+
+    <button onclick="countOccurrences()">Count</button>
+    <h3>RESULT</h3>
+    <p id="result"></p>
+
+    <script>
+        function countOccurrences() {
+            let str = document.getElementById("text").value;
+            let counts = {};
+
+            for (let char of str) {
+                counts[char] = (counts[char] || 0) + 1;
+            }
+
+            document.getElementById("result").innerHTML = JSON.stringify(counts);
+        }
+    </script>
+</body>
+</html>
