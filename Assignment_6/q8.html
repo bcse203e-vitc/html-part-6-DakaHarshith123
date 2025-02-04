@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta  name="viewport" content ="width=device-width, input-scale=1.0">
+  <title>greatest common divisor</title>
+  </head>
+  <body>
+    <label for="num1">Enter First Number</label>
+    <input type="number" id="num1">
+    <br><br>
+    
+    <label for="num2">Enter Second Number</label>
+    <input type="number" id="num2">
+    <br><br>
+    
+    <button onclick="GCD()">Enter</button>
+    <h3>Result</h3>
+    <p id ="result"> </p>
+    
+    <script>
+      function GCD(){
+        let a=parseInt(document.getElementById("num1").value);
+        let b=parseInt(document.getElementById("num2").value);
+        if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0) {
+          document.getElementById("result").innerHTML = " enter valid positive numbers.";
+          return;
+        }
+        while (b !== 0) {
+          let temp = b;
+          b = a % b;
+          a = temp;
+        }
+        document.getElementById("result").innerHTML=a;
+      }
+    </script>
+  </body>
+  
+</html>
